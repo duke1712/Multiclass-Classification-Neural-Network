@@ -30,7 +30,10 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
+[value,p] = max(sigmoid(X*transpose(all_theta)),[],2);
+% [i,j]=max(t(1,:),[],2);
+% fprintf('\n%f ',t(1,:)); 
+% fprintf('\n%f ',p(1:5)); 
 
 
 

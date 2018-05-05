@@ -9,7 +9,7 @@ num_labels = size(Theta2, 1);
 
 % You need to return the following variables correctly 
 p = zeros(size(X, 1), 1);
-
+% a = zeros(size(Theta1, 1)+1, size(X, 1));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned neural network. You should set p to a 
@@ -19,13 +19,19 @@ p = zeros(size(X, 1), 1);
 %       function can also return the index of the max element, for more
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
-%
+
+% [value,labels] = max(sigmoid(X*Theta1),[],2)
+% printf(' a=%f', size(X));
+
+X = [ones(size(X, 1), 1) X];
+a=sigmoid(X*transpose(Theta1));
+
+a = [ones(size(a, 1),1) a];
+printf(' a=%f', size(a));
+[value,p] = max(sigmoid(a*transpose(Theta2)),[],2);
 
 
-
-
-
-
+% printf(' value=%f', size(sigmoid(Theta1(:,2:end)*transpose(X))))
 
 
 
